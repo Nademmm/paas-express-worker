@@ -18,6 +18,14 @@ app.get("/api/status", (req, res) => {
   });
 });
 
+app.get("/api/info", (req, res) => {
+  res.json({
+    framework: "Express",
+    runtime: "Cloudflare Workers",
+    course: "Platform as a Service"
+  });
+});
+
 app.listen(3000);
 
 export default httpServerHandler({ port: 3000 });
