@@ -18,7 +18,14 @@
 	"vars": {
 		"APP_NAME": "PaaS Express Worker",
 		"APP_ENV": "development"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "paas-students-db",
+			"database_id": "1e9b38d9-ea4d-4d2b-a9e2-96d371c3b04c"
+		}
+	]
 	/**
 	 * Cloudflare D1 Database Binding (Persiapan Materi Selanjutnya)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#d1-databases
