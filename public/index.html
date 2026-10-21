@@ -1,0 +1,40 @@
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Student Management</h1>
+    <p>Frontend HTML + JS → Express API → Cloudflare D1</p>
+    <section class="panel">
+      <h2>Form Siswa</h2>
+      <form id="student-form">
+        <input id="student-id" type="hidden">
+        <label>Nama
+          <input id="name" required maxlength="80" placeholder="Nama siswa fiktif">
+        </label>
+        <label>Kelas
+          <input id="class-name" required maxlength="30" placeholder="X RPL">
+        </label>
+        <button id="save-btn" type="submit">Tambah siswa</button>
+        <button id="cancel-btn" type="button" hidden>Batal edit</button>
+      </form>
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+    <section class="panel">
+      <h2>Daftar Siswa</h2>
+      <button id="refresh-btn" type="button">Muat ulang data</button>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Nama</th><th>Kelas</th><th>Aksi</th></tr></thead>
+          <tbody id="student-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
