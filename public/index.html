@@ -1,39 +1,81 @@
+<!doctype html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Management</title>
+  <title>Student Management — Secure API</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
   <main class="container">
-    <h1>Student Management</h1>
-    <p>Frontend HTML + JS → Express API → Cloudflare D1</p>
-    <section class="panel">
-      <h2>Form Siswa</h2>
-      <form id="student-form">
-        <input id="student-id" type="hidden">
-        <label>Nama
-          <input id="name" required maxlength="80" placeholder="Nama siswa fiktif">
-        </label>
-        <label>Kelas
-          <input id="class-name" required maxlength="30" placeholder="X RPL">
-        </label>
-        <button id="save-btn" type="submit">Tambah siswa</button>
-        <button id="cancel-btn" type="button" hidden>Batal edit</button>
+    <header class="page-header">
+      <h1>Student Management</h1>
+      <p>Frontend → Express API → Cloudflare D1</p>
+    </header>
+
+    <section id="login-panel" class="panel">
+      <h2>Login</h2>
+      <p>Gunakan akun demo yang dibuat oleh script seed dari guru.</p>
+
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+
+        <button id="login-button" type="submit">Masuk</button>
       </form>
-      <p id="message" role="status" aria-live="polite"></p>
+
+      <p id="login-message" class="message" role="status" aria-live="polite"></p>
     </section>
-    <section class="panel">
-      <h2>Daftar Siswa</h2>
-      <button id="refresh-btn" type="button">Muat ulang data</button>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>ID</th><th>Nama</th><th>Kelas</th><th>Aksi</th></tr></thead>
-          <tbody id="student-rows"></tbody>
-        </table>
+
+    <section id="dashboard" hidden>
+      <div class="panel user-bar">
+        <p id="current-user"></p>
+        <button id="logout-button" class="secondary" type="button">Logout</button>
       </div>
+
+      <section id="student-editor" class="panel">
+        <h2>Form Siswa</h2>
+        <form id="student-form">
+          <input id="student-id" type="hidden">
+
+          <label for="name">Nama</label>
+          <input id="name" maxlength="80" required placeholder="Nama siswa fiktif">
+
+          <label for="class-name">Kelas</label>
+          <input id="class-name" maxlength="30" required placeholder="XI SIJA">
+
+          <div class="button-row">
+            <button id="save-button" type="submit">Tambah siswa</button>
+            <button id="cancel-button" class="secondary" type="button" hidden>Batal edit</button>
+          </div>
+        </form>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <h2>Daftar Siswa</h2>
+          <button id="refresh-button" class="secondary" type="button">Muat ulang</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Kelas</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="student-rows"></tbody>
+          </table>
+        </div>
+      </section>
     </section>
   </main>
 </body>

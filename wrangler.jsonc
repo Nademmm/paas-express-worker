@@ -15,17 +15,30 @@
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 */
-	"assets": {
-		"directory": "./public",
-		"run_worker_first": [
-			"/api/*"
-		]
-	},
 	
 	"vars": {
 		"APP_NAME": "PaaS Express Worker",
 		"APP_ENV": "development"
 	},
+	"assets": {
+  		"directory": "./public",
+ 	 	"run_worker_first": ["/api/*"]
+	},
+
+	"ratelimits": [
+  {
+    "name": "LOGIN_RATE_LIMITER",
+    "namespace_id": "180309",
+    "simple": {
+      "limit": 5,
+      "period": 60
+    }
+  }
+],
+"secrets": {
+  "required": ["JWT_SECRET"]
+},
+
 	"d1_databases": [
 		{
 			"binding": "DB",

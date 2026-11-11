@@ -165,3 +165,8 @@ dist
 .env*
 !.env.example
 .wrangler/
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+scripts/seed-demo-users.sql
